@@ -18,4 +18,4 @@ app.use("/api/pickup", pickupRoutes);
 app.get("/", (req, res) => res.send("Kabadiwala API is running"));
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(`?? Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`?? Server running on port ${8080}`));
