@@ -1,2 +1,0 @@
-# kabadiwala
-Indian Scrap Management
