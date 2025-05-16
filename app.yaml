@@ -1,0 +1,39 @@
+name: kabadiwala-app
+services:
+  - name: backend
+    github:
+      repo: yourgithubusername/kabadiwala-scrap-app
+      branch: main
+      deploy_on_push: true
+    envs:
+      - key: PORT
+        value: 8080
+      - key: MONGO_URI
+        value: your_mongodb_uri
+      - key: GMAIL_USER
+        value: your_gmail@gmail.com
+      - key: GMAIL_PASS
+        value: your_gmail_app_password
+      - key: TWILIO_SID
+        value: your_twilio_sid
+      - key: TWILIO_AUTH_TOKEN
+        value: your_twilio_token
+      - key: TWILIO_PHONE_NUMBER
+        value: +91xxxxxxxxxx
+    run_command: "npm start"
+    build_command: "npm install"
+    source_dir: kabadiwala-backend
+    http_port: 8080
+
+  - name: frontend
+    github:
+      repo: yourgithubusername/kabadiwala-scrap-app
+      branch: main
+      deploy_on_push: true
+    envs:
+      - key: REACT_APP_API_URL
+        value: https://your-backend-url/api/pickup
+    run_command: "npm start"
+    build_command: "npm install && npm run build"
+    source_dir: kabadiwala-frontend
+    http_port: 3000
